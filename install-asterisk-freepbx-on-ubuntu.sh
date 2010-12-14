@@ -345,7 +345,7 @@ DocumentRoot /usr/share/freepbx
 	Options Indexes FollowSymLinks
 	order allow,deny
 	allow from all
-	AuthName "Operator Panel"
+	AuthName "PBX Administrator"
 	AuthType Basic
 	AuthUserFile /dev/null 
 	AuthBasicAuthoritative off
@@ -415,13 +415,13 @@ ln -s  /etc/apache2/sites-available/freepbx.conf /etc/apache2/sites-enabled/free
 #Get FreePBX to start automatically on boot.
 
 	echo '#!/bin/bash' > /etc/init.d/amportal-start
-	echo '/usr/sbin/amportal start' >> /etc/init.d/amportal-start
+	echo '/usr/local/sbin/amportal start' >> /etc/init.d/amportal-start
 	chmod +x /etc/init.d/amportal-start
 	update-rc.d amportal-start start 99 2 3 4 5 .
 	
 
 	echo '#!/bin/bash' > /etc/init.d/amportal-stop
-	echo '/usr/sbin/amportal stop' >> /etc/init.d/amportal-stop
+	echo '/usr/local/sbin/amportal stop' >> /etc/init.d/amportal-stop
 	chmod +x /etc/init.d/amportal-stop
 	update-rc.d amportal-stop stop 10 0 1 6 .
 
