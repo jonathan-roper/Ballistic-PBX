@@ -1,6 +1,6 @@
 #/bin/sh
 #Install Dahdi on Proxmox version 1.3
-#Copyright (C) 2009 Jonathan Roper joe.roper@gmail.com
+#Copyright (C) 2009-2011 Jonathan Roper joe.roper@gmail.com
 
 #This program is free software; you can redistribute it and/or
 #modify it under the terms of the GNU General Public License
@@ -94,7 +94,7 @@ touch /usr/local/sbin/pabx-create-template
 echo '
 #/bin/sh
 #Creates template.
-#Copyright (C) 2009 Jonathan Roper joe.roper@gmail.com
+#Copyright (C) 2009-2011 Jonathan Roper joe.roper@gmail.com
 
 #This program is free software; you can redistribute it and/or
 #modify it under the terms of the GNU General Public License
@@ -111,7 +111,7 @@ echo '
 #Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #!/bin/bash
-#Create Template script - Joe Roper 2009
+#Create Template script - Joe Roper 2009-2011
 clear
 echo "Creates a template"
 echo  "please enter the VE number"
@@ -141,7 +141,7 @@ touch /usr/local/sbin/pabx-create-eth0
 echo '
 #/bin/sh
 #Creates Eth0 for Digium registration.
-#Copyright (C) 2009 Jonathan Roper joe.roper@gmail.com
+#Copyright (C) 2009-2011 Jonathan Roper joe.roper@gmail.com
 
 #This program is free software; you can redistribute it and/or
 #modify it under the terms of the GNU General Public License
@@ -184,7 +184,7 @@ Tenemos que modificar el script del arranque de DAHDI
 We have to modify the startup script DAHDI
 nano /etc/init.d/dahdi
 nano / etc / init.d / dahdi
-modificar estas dos líneas:
+modificar estas dos lï¿½neas:
 modify these two lines:
 modprobe dahdi
 modprobe dahdi
@@ -192,9 +192,9 @@ modprobe dahdi_dummy 2> /dev/null
 dahdi_dummy modprobe 2> / dev / null
 para que queden
 to make them
-modprobe –f dahdi
+modprobe ï¿½f dahdi
 modprobe-f dahdi
-modprobe –f dahdi_dummy 2> /dev/null
+modprobe ï¿½f dahdi_dummy 2> /dev/null
 dahdi_dummy modprobe-f 2> / dev / null
 Volvemos a arrancar DAHDI
 Restart DAHDI
