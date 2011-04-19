@@ -534,6 +534,7 @@ iptables -A INPUT -p udp -m udp --dport 4520 -j ACCEPT
 iptables -A INPUT -p udp -m udp --dport 4569 -j ACCEPT
 iptables -A INPUT -p udp -m udp --dport 5060 -j ACCEPT
 iptables -A INPUT -p udp -m udp --dport 10000:20000 -j ACCEPT
+iptables -A INPUT -p udp -m udp --dport 4000:4099 -j ACCEPT
 iptables -A INPUT -p udp -m udp --dport 123 -j ACCEPT
 iptables -A INPUT -p udp -m udp --dport 69 -j ACCEPT
 iptables -A INPUT -p udp -m udp --dport 53 -j ACCEPT
