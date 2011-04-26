@@ -1,6 +1,6 @@
 #/bin/sh
 #Install Asterisk and FreePBX on Ubuntu LTS 10
-#Copyright (C) 2010 Star2Billing S.L. jonathan@star2billing.com
+#Copyright (C) 2010-11 Star2Billing S.L. jonathan@star2billing.com
 
 #This program is free software; you can redistribute it and/or
 #modify it under the terms of the GNU General Public License
@@ -524,6 +524,7 @@ iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 iptables -A OUTPUT -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
 iptables -A INPUT -i lo -p all -j ACCEPT  
+iptables -A INPUT -p udp -m udp --dport 69 -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 4445 -j ACCEPT
@@ -850,12 +851,43 @@ done
 if [ $INSTALLWEBMIN = 0 ]; then
 	rm -rf webmin-1*.deb
 	cd /usr/src
-	wget http://sunet.dl.sourceforge.net/project/webadmin/webmin/1.520/webmin_1.520_all.deb
+	wget http://ignum.dl.sourceforge.net/project/webadmin/webmin/1.540/webmin_1.540_all.deb
 	dpkg --install webmin*
 	apt-get -y -f install
 	rm -rf webmin*.deb
 fi
 
+INSTALLTFTP=2
+until [ $INSTALLTFTP -lt 2 ] ; do
+    clear
+    echo "Do you want to install a TFTP server Y/n"
+    echo "Press 0 for Yes or 1 for No"
+    read INSTALLTFTP < /dev/tty
+    echo $INSTALLTFTP
+done
+
+#Install a TFTP server
+if [ $INSTALLTFTP = 0 ]; then
+    apt-get install xinetd tftpd tftp -y
+    echo '
+    service tftp
+    {
+    protocol        = udp
+    port            = 69
+    socket_type     = dgram
+    wait            = yes
+    user            = nobody
+    server          = /usr/sbin/in.tftpd
+    server_args     = /tftpboot
+    disable         = no
+    }
+    ' > /etc/xinetd.d/tftp
+    mkdir /tftpboot
+    chmod -R 777 /tftpboot
+    chown -R asterisk /tftpboot
+    echo 'includedir /etc/xinetd.d' >> /etc/xinetd.conf
+    /etc/init.d/xinetd start
+fi
 
 
 
