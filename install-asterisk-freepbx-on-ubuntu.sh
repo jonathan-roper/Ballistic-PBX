@@ -849,13 +849,14 @@ until [ $INSTALLWEBMIN -lt 2 ] ; do
 done
 
 if [ $INSTALLWEBMIN = 0 ]; then
-	rm -rf webmin-1*.deb
-	cd /usr/src
-	wget http://ignum.dl.sourceforge.net/project/webadmin/webmin/1.540/webmin_1.540_all.deb
-	dpkg --install webmin*
-	apt-get -y -f install
-	rm -rf webmin*.deb
+    rm -rf webmin*.deb
+    cd /usr/src
+    wget http://www.webmin.com/download/deb/webmin-current.deb
+    dpkg --install webmin*
+    apt-get -y -f install
+    rm -rf webmin*.deb
 fi
+
 
 INSTALLTFTP=2
 until [ $INSTALLTFTP -lt 2 ] ; do
