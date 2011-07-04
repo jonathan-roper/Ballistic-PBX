@@ -177,29 +177,29 @@ sed -i 's|ipt_REJECT ipt_tos ipt_limit ipt_multiport iptable_filter iptable_mang
 /etc/init.d/vz restart 
 echo "Now correct /usr/local/sbin/pabx-create-eth0" 
 echo " There may be other problems to correct
-If you get this error:
-FATAL: Error inserting dahdi (/lib/modules/2.6.18.8-linode19/dahdi/dahdi.ko): Invalid module format
-FATAL: Error inserting dahdi (/ lib/modules/2.6.18.8-linode19/dahdi/dahdi.ko): Invalid module format
-Tenemos que modificar el script del arranque de DAHDI
-We have to modify the startup script DAHDI
-nano /etc/init.d/dahdi
-nano / etc / init.d / dahdi
-modificar estas dos l�neas:
-modify these two lines:
-modprobe dahdi
-modprobe dahdi
-modprobe dahdi_dummy 2> /dev/null
-dahdi_dummy modprobe 2> / dev / null
-para que queden
-to make them
-modprobe �f dahdi
-modprobe-f dahdi
-modprobe �f dahdi_dummy 2> /dev/null
-dahdi_dummy modprobe-f 2> / dev / null
-Volvemos a arrancar DAHDI
-Restart DAHDI
-/etc/init.d/dahdi start
-/ etc / init.d / dahdi start"
+#If you get this error:
+#FATAL: Error inserting dahdi (/lib/modules/2.6.18.8-linode19/dahdi/dahdi.ko): Invalid module format
+#FATAL: Error inserting dahdi (/ lib/modules/2.6.18.8-linode19/dahdi/dahdi.ko): Invalid module format
+#Tenemos que modificar el script del arranque de DAHDI
+#We have to modify the startup script DAHDI
+#nano /etc/init.d/dahdi
+#nano / etc / init.d / dahdi
+#modificar estas dos l�neas:
+#modify these two lines:
+#modprobe dahdi
+#modprobe dahdi
+#modprobe dahdi_dummy 2> /dev/null
+#dahdi_dummy modprobe 2> / dev / null
+#para que queden
+#to make them
+#modprobe �f dahdi
+#modprobe-f dahdi
+#modprobe �f dahdi_dummy 2> /dev/null
+#dahdi_dummy modprobe-f 2> / dev / null
+#Volvemos a arrancar DAHDI
+#Restart DAHDI
+#/etc/init.d/dahdi start
+#/ etc / init.d / dahdi start"
 
 INSTALLWEBMIN=2
 until [ $INSTALLWEBMIN -lt 2 ] ; do
