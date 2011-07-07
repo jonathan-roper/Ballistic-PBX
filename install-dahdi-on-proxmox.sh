@@ -163,11 +163,11 @@ clear
 echo "Creates an eth0 on the container - Do not run this more than once"
 echo  "please enter the VE number"
 read VENUMBER
-set - `/sbin/ifconfig eth0 | head -1`
-echo "Mac Address = ""$MAC$5"
+vzctl set $VENUMBER --netif_add eth0 --save
+"
 echo "Please restart container $VENUMBER"
 ' > /usr/local/sbin/pabx-create-eth0
-echo 'echo NETIF="ifname=eth0,mac=$MAC$5,host_mac=96:F0:7C:4F:5E:DA" >> /etc/vz/conf/$VENUMBER.conf' >> /usr/local/sbin/pabx-create-eth0
+
 chmod +x /usr/local/sbin/pabx-create-eth0
 
 
