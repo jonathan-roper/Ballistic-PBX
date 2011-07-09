@@ -803,6 +803,14 @@ apt-get -f install
 
 apt-get -y update
 
+echo ""
+echo ""
+echo ""
+echo "If the Kernel has been updated, we advise you to reboot your server and run again the install script!"
+echo "If you are not sure whether the kernel has been updated, reboot and start again (once only!)"
+echo "Press CTRL C to exit and reboot, or enter to continue"
+read TEMP
+
 apt-get -y remove sendmail
 
 apt-get -y upgrade
