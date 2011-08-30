@@ -27,10 +27,6 @@ function funcasterisk()
 {
 
 #Asterisk Versions.
-ASTERISK16VER=asterisk-1.6.2-current.tar.gz
-ASTERISKADDONS16VER=asterisk-addons-1.6.2-current.tar.gz
-ASTERISK14VER=asterisk-1.4-current.tar.gz
-ASTERISKADDONS14VER=asterisk-addons-1.4-current.tar.gz
 ASTERISK18VER=asterisk-1.8-current.tar.gz
 
 
@@ -61,7 +57,7 @@ ASTVER=3
 until [ $ASTVER -lt 3 ] ; do
 	clear
 	echo "Select Asterisk Version to install"
-	echo "Press 0 for Asterisk 1.6 or 1 for Asterisk 1.4 or 2 for 1.8"
+	echo "Press 1 for Asterisk 1.6 or Asterisk 1.4 or 2 for 1.8"
 	read ASTVER < /dev/tty
 	echo $ASTVER
 done
@@ -69,17 +65,21 @@ done
 rm -rf asterisk*.tar.gz
 
 case $ASTVER in
-	0)
-		wget http://downloads.asterisk.org/pub/telephony/asterisk/$ASTERISK16VER
-		wget http://downloads.asterisk.org/pub/telephony/asterisk/$ASTERISKADDONS16VER
-		tar zxf $ASTERISK16VER
-		tar zxf $ASTERISKADDONS16VER
-	;;
 	1)
-		wget http://downloads.asterisk.org/pub/telephony/asterisk/$ASTERISK14VER
-		wget http://downloads.asterisk.org/pub/telephony/asterisk/$ASTERISKADDONS14VER
-		tar zxf $ASTERISK14VER
-		tar zxf $ASTERISKADDONS14VER
+		echo "Enter Asterisk Version, e.g. 1.6.2.20 or 1.4.42)"
+		read ASTVERSION
+		if [ -z "$ASTVERSION" ]; then
+    		ASTVERSION="1.4.42"
+		fi
+		echo "Enter Asterisk Addons Version, e.g. 1.6.2.4 or 1.4.13)"
+		read ASTADDONSVERSION
+		if [ -z "$ASTADDONSVERSION" ]; then
+    		ASTADDONSVERSION="1.4.13"
+		fi
+		wget http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-$ASTVERSION.tar.gz
+		wget http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-addons-$ASTADDONSVERSION.tar.gz
+		tar zxf asterisk-$ASTVERSION.tar.gz
+		tar zxf asterisk-addons-$ASTADDONSVERSION.tar.gz
 	;;
 	2)
 		wget http://downloads.asterisk.org/pub/telephony/asterisk/$ASTERISK18VER
