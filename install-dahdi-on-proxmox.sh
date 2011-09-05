@@ -19,6 +19,7 @@
 
 apt-get -y update
 apt-get -y upgrade
+dpkg-reconfigure locales
 
 
 #install asterisk dependencies
