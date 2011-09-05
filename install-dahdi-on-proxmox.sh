@@ -22,7 +22,7 @@ apt-get -y upgrade
 
 
 #install asterisk dependencies
-apt-get -y --fix-missing install build-essential make libncurses5-dev libcurl4-openssl-dev  pve-headers-`uname -r` language-pack-en-base
+apt-get -y --fix-missing install build-essential make libncurses5-dev libcurl4-openssl-dev  pve-headers-`uname -r` 
 
 
 
@@ -214,7 +214,7 @@ if [ $INSTALLWEBMIN = 0 ]; then
 	rm -rf webmin-1*.deb
 	cd /usr/src
 	apt-get -y install libio-pty-perl libmd5-perl libnet-ssleay-perl  libauthen-pam-perl
-	wget http://downloads.sourceforge.net/project/webadmin/webmin/1.500/webmin_1.500_all.deb?use_mirror=ignum
+	wget http://www.webmin.com/download/deb/webmin-current.deb
 	dpkg --install webmin*
-	rm -rf webmin-1*.rpm
+	rm -rf webmin-1*.deb
 fi
