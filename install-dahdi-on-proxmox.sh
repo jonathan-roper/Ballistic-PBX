@@ -22,7 +22,7 @@ apt-get -y upgrade
 
 
 #install asterisk dependencies
-apt-get -y --fix-missing install build-essential make libncurses5-dev libcurl4-openssl-dev  pve-headers-`uname -r`
+apt-get -y --fix-missing install build-essential make libncurses5-dev libcurl4-openssl-dev  pve-headers-`uname -r` language-pack-en-base
 
 
 
