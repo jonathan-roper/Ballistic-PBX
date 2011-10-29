@@ -22,10 +22,14 @@
 #change this line to suit the location of your prompts.
 EXTRACTDIR=/tmp/prompts
 
+#Change the defaults below to suit your install
+ASTDIR=/var/lib/asterisk
+ASTERISKUSER=asterisk
+ASTERISKGROUP=asterisk
 
 TEMPDIR=/tmp/westany-prompts-xyz
 FILES=*.tar.gz
-ASTDIR=/var/lib/asterisk
+
 
 cd $EXTRACTDIR
 mkdir $TEMPDIR
@@ -55,7 +59,8 @@ do
 	rm $ASTDIR/sounds.tar.gz
 done
 
-#Put everything back
+#Put everything back and clean up
 rm -rf $EXTRACTDIR/*
 mv  $TEMPDIR/* $EXTRACTDIR
 rm -rf $TEMPDIR
+chown -R $ASTERISKUSER:$ASTERISKGROUP $ASTDIR/sounds/
