@@ -28,6 +28,7 @@ function funcasterisk()
 
 #Asterisk Versions.
 ASTERISK18VER=asterisk-1.8-current.tar.gz
+ASTERISK10VER=asterisk-10.0.0-beta2.tar.gz
 
 
 #Add Asterisk group and user
@@ -53,11 +54,11 @@ fi
 cd /usr/src
 
 
-ASTVER=3
-until [ $ASTVER -lt 3 ] ; do
+ASTVER=4
+until [ $ASTVER -lt 4 ] ; do
 	clear
 	echo "Select Asterisk Version to install"
-	echo "Press 1 for Asterisk 1.6 or Asterisk 1.4 or 2 for 1.8"
+	echo "Press 1 for Asterisk 1.6 or Asterisk 1.4, 2 for 1.8, 3. for 10"
 	read ASTVER < /dev/tty
 	echo $ASTVER
 done
@@ -84,6 +85,10 @@ case $ASTVER in
 	2)
 		wget http://downloads.asterisk.org/pub/telephony/asterisk/$ASTERISK18VER
 		tar zxf $ASTERISK18VER
+	;;
+	3)
+		wget http://downloads.asterisk.org/pub/telephony/asterisk/$ASTERISK10VER
+		tar zxf $ASTERISK10VER
 	;;
 esac
 
@@ -133,7 +138,7 @@ cd /usr/src/asterisk
 make clean
 ./configure
 make menuselect
-if [ $ASTVER -eq 2 ]
+if [ $ASTVER -ge 2 ]
 then
 	/usr/src/asterisk/contrib/scripts/get_mp3_source.sh
 fi
