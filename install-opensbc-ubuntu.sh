@@ -152,8 +152,8 @@ echo "Please reboot"
 echo "================================================================================"
 
 
-echo 
-'1. http://11.22.33.44:9999/Internal-DNS-Mapping
+echo "
+1. http://11.22.33.44:9999/Internal-DNS-Mapping
 
 This is where we create the DNS entries for the internal IP addresses, this not compulsory, but it does make admin easier.
 
@@ -202,4 +202,4 @@ To forward DID to your systems from your DID provider or A2Billing system, simpl
 
 
 Please test and test again, particularly in respect of MWI lights, extension to extension calls and check that it does what you need it do.
-' > /root/OpenSIPStack/README
+" > /root/OpenSIPStack/README
