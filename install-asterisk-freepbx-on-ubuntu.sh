@@ -28,7 +28,7 @@ function funcasterisk()
 
 #Asterisk Versions.
 ASTERISK18VER=asterisk-1.8-current.tar.gz
-ASTERISK10VER=asterisk-10.0.0-beta2.tar.gz
+ASTERISK10VER=asterisk-10-current.tar.gz
 
 
 #Add Asterisk group and user
@@ -213,6 +213,16 @@ echo '
 }
 
 /var/log/asterisk/full {
+   missingok
+   rotate 5
+   daily
+   create 0640 asterisk asterisk
+   postrotate
+       /usr/sbin/asterisk -rx 'logger reload' > /dev/null 2> /dev/null
+   endscript
+}
+
+/var/log/asterisk/messages {
    missingok
    rotate 5
    daily
@@ -750,10 +760,23 @@ logout
 sed -i '/ossec_rules/ i\    <include>asterisk_rules.xml</include>' /var/ossec/etc/ossec.conf 
 
 #Get asterisk to write to syslog
-echo 'syslog.local0 => notice,warning,error' >> /etc/asterisk/logger.conf
+echo 'messages => notice,warning,error' >> /etc/asterisk/logger.conf
 asterisk -rx 'module reload'
 sed -i 's/ossec:x:500:asterisk/ossec:x:500:/g' /etc/group
 sed -i 's/ossec:x:500:/ossec:x:500:asterisk/g' /etc/group
+
+sed -i '/<\/ossec_config>/d' /var/ossec/etc/ossec.conf
+echo '
+ <localfile>
+   <log_format>syslog</log_format>
+   <location>/var/log/asterisk/messages</location>
+ </localfile>
+ </ossec_config> 
+' >> /var/ossec/etc/ossec.conf 
+
+
+
+
 /var/ossec/bin/ossec-control start
 
 #quieten down the logs
