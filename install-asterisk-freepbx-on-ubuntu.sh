@@ -244,6 +244,9 @@ echo '
 
 chown -R asterisk:asterisk /var/log/asterisk/ /etc/asterisk/ /var/lib/asterisk/ /var/run/asterisk /var/spool/asterisk
 
+if [ -d /tftpboot ]; then
+ chown -R asterisk:asterisk /tftpboot
+fi
 
 #Now Asterisk should start
 #Disable TTY9 for OpenVZ
@@ -926,7 +929,6 @@ if [ $INSTALLTFTP = 0 ]; then
     ' > /etc/xinetd.d/tftp
     mkdir /tftpboot
     chmod -R 777 /tftpboot
-    chown -R asterisk /tftpboot
     echo 'includedir /etc/xinetd.d' >> /etc/xinetd.conf
     /etc/init.d/xinetd start
 fi
