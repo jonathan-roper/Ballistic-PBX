@@ -853,7 +853,8 @@ dpkg-reconfigure tzdata
 
 #install dependencies
 
-
+#for asterisk 10
+apt-get -y install libsqlite3-dev sqlite3
 
 apt-get -y install mysql-server
 apt-get -y install mysql-client libmysqlclient-dev build-essential sysvinit-utils libxml2 libxml2-dev libncurses5-dev libcurl4-openssl-dev libvorbis-dev libspeex-dev unixodbc unixodbc-dev libiksemel-dev wget iptables php5 php5-cli php-pear php5-mysql php-db libapache2-mod-php5 php5-gd php5-curl sqlite libnewt-dev libusb-dev zlib1g-dev  libsqlite0-dev  libapache2-mod-auth-mysql sox mpg123 postfix flite php5-mcrypt python-setuptools python-mysqldb python-psycopg2 python-sqlalchemy ntp
@@ -926,7 +927,7 @@ if [ $INSTALLTFTP = 0 ]; then
     ' > /etc/xinetd.d/tftp
     mkdir /tftpboot
     chmod -R 777 /tftpboot
-    chown -R asterisk /tftpboot
+    #chown -R asterisk /tftpboot
     echo 'includedir /etc/xinetd.d' >> /etc/xinetd.conf
     /etc/init.d/xinetd start
 fi
