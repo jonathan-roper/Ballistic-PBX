@@ -625,7 +625,7 @@ function funcossec ()
 
 cd /usr/src
 rm -rf ossec*
-wget http://www.ossec.net/files/ossec-hids-2.5.1.tar.gz
+wget http://www.ossec.net/files/ossec-hids-2.6.tar.gz
 tar zxfv ossec-hids-*.tar.gz
 rm -rf ossec-hids*.tar.gz
 mv ossec-hids-* ossec-hids
