@@ -812,14 +812,7 @@ reboot
 
 #funcreboot
 }
-# ---------------------- Pause ------------------------
 
-function pause(){
-   read -p �$*�
-#pause
-#usage pause "some test, press any key to continue"
-#pause
-}
 
 # ---------------------- Install Dependencies ------------------------
 
