@@ -58,7 +58,9 @@ ASTVER=4
 until [ $ASTVER -lt 4 ] ; do
 	clear
 	echo "Select Asterisk Version to install"
-	echo "Press 1 for Asterisk 1.6 or Asterisk 1.4, 2 for 1.8, 3. for 10"
+	echo "Press 1 for Asterisk 1.6 or Asterisk 1.4" 
+        echo "2 for 1.8"
+	echo "3 for Asterisk 10"
 	read ASTVER < /dev/tty
 	echo $ASTVER
 done
