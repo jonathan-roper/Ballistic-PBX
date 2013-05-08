@@ -1,7 +1,6 @@
-Installing Asterisk 1.8, and FreePBX on Ubuntu 10.04 Server
-(Lucid Lynx)
+Installing Asterisk 1.8, 10, 11 and FreePBX on Ubuntu 10.04 or 12.04 Server
 
-1. Download Ubuntu 10.04 Server and burn it to a CD.
+1. Download Ubuntu 10.04 or 12.04 Server and burn it to a CD.
 2. Put CD in drive of the machine you are going to load and boot to the CD.  Please be aware that this installation will completely erase the hard drive on the target machine.  Also make sure you have a valid Internet connection to the machine.  The installation process will download a lot of files from the repositories.  
 3. Once it boots, choose your language.
 4. Hit Return on “Install Ubuntu Server” (This will take a few seconds)
@@ -19,18 +18,25 @@ Installing Asterisk 1.8, and FreePBX on Ubuntu 10.04 Server
 16. If you use a proxy server to get to the Internet, enter it here and press enter.  Most users will leave this blank.
 17. Select how you want to handle updates and press enter. 
 18. Select the software you want to install.  I choose OpenSSH here. Use your arrow keys to select and the spacebar to make.  Hit enter when done. 
-19. When you are asked to change the MySQL root password (you will be asked 3 times), do not do it.  Just hit enter.  FreePBX will not install correctly if you change this password. 
+19. If asked for a MySQL password, set the one you want, and remember it for use later in the script. ***The password must be set***. 
 20. Select type of mail server you are running and hit enter.  I chose “Internet with smarthost” here.
 21. Go have some coffee.  This will take a while.  
 22. Since you formatted the entire drive earlier, select “Yes” when asked to install the GRUB boot loader...
 23. When the CD is ejected, remove it and hit enter. The machine will reboot.
 24. Log in with the username and password you entered earlier.
-25. Enter the command “sudo -i” (without the quotes) at the command prompt and enter your password again.  You are now in the superuser mode.  
+25. Enter the command “sudo su -” (without the quotes) at the command prompt and enter your password again.  You are now in the superuser mode.  
 26. Change directory to /usr/src (cd /usr/src)
-27. Use wget to get Joe Roper's installer script from the repository.  
-28. Use chmod to change the permissions on the installer file to 755 (chmod 755  <name of installer script>)
-29. Run the script. (./<name of script>)
+27. Use wget to get Joe Roper's installer script from the repository. Install-ballistic-pbx.sh 
+28. Use chmod to change the permissions on the installer to have executable permissions (chmod +x <name of installer script>) 
+29. Run the script. (./<name of script>) or simply run bash <name of script>
 30. Press 1 to install the dependencies.  
 31. Answer the questions as asked.
 32. When it is done, the script will appear.  Select 2 to install asterisk, then choose the version of Asterisk you want and sit back and wait. 
-33. You will need to make some choices on what modules you want installed.  I think you can accept the defaults, but I usually make some choices here.  I add the extra sounds and prompts in the various codecs and languages that I use.  
+33. You will need to make some choices on what modules you want installed. As a minimum, install all the asterisk add-ons, except ooh323 and app_saycountpl, in resource modules, deselect res_config_ldap, and select the sound files you require from core sounds, music on hold and extra sounds.  
+34. Press 3 to install FreePBX.
+35. Select any other modules you want, e.g. Ossec, SSL support, and so on.
+36. When installed, FreePBX is to be found at http://IP-Of-PBX/admin/, you will be prompted for a username and password by apache, the default is vm and vmadmin, then enter a username and password to administer the system. You can now log in with the user and password you chose. First job is to change the vm user password in the administrator section.
+
+No free support is offered with the script, comments and bug fixes can be made via the issue tracker on github, and commercial help and development is available by emailing sales@star2billing.com
+
+ 
