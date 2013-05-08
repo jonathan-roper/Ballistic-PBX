@@ -16,7 +16,8 @@
 #along with this program; if not, write to the Free Software
 #Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-
+####### This script is deprecated ###########
+####### Please use install-ballistic-pbx.sh ##########
 
 
 # -------- preparation ------------
@@ -820,6 +821,10 @@ reboot
 
 function funcdependencies(){
 #Install Dependencies
+clear
+echo "This script is deprecated, please use install-ballistic-pbx.sh"
+echo "Press CTRL-C to exit"
+read TEMP
 
 KERNELARCH=$(uname -p)
 
