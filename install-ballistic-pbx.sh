@@ -265,7 +265,7 @@ then
     cd /usr/src
     rm -rf freepbx*.tar.gz
     rm -rf freepbx
-    wget http://mirror.freepbx.org/freepbx-2.11.0rc1.tar.gz
+    wget http://mirror.freepbx.org/freepbx-2.11.0.tar.gz
     tar zxfv freepbx*.tar.gz
     rm -rf freepbx*.tar.gz
     mv freepbx-2* freepbx
