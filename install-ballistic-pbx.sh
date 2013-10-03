@@ -329,8 +329,9 @@ AMPDBPASS=$FREEPBXPASSW
     rm /etc/asterisk/sip_notify.conf
     rm /etc/asterisk/features.conf
     rm /etc/asterisk/sip.conf
-	rm /etc/asterisk/confbridge.conf
-	rm /etc/asterisk/ccss.conf 
+    rm /etc/asterisk/confbridge.conf
+    rm /etc/asterisk/ccss.conf
+    rm /etc/asterisk/udptl.conf
     /var/lib/asterisk/bin/retrieve_conf 
 
     #Bring modules upto date and get useful modules
