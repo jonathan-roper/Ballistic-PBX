@@ -509,6 +509,8 @@ iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 iptables -A OUTPUT -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
 iptables -A INPUT -i lo -p all -j ACCEPT  
+#drop sipvicious attacks
+iptables -I INPUT -j DROP -p udp --dport 5060 -m string --string "friendly-scanner" --algo bm
 iptables -A INPUT -p udp -m udp --dport 69 -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
