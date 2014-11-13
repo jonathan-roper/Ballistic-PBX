@@ -263,12 +263,12 @@ then
     
 	# Get FreePBX - Unzip and modify
     cd /usr/src
-    rm -rf freepbx*.tar.gz
+    rm -rf freepbx*.tgz
     rm -rf freepbx
     wget http://mirror.freepbx.org/freepbx-2.11.0.40.tgz
-    tar zxfv freepbx*.tar.gz
-    rm -rf freepbx*.tar.gz
-    mv freepbx-2* freepbx
+    tar zxfv freepbx*.tgz
+    rm -rf freepbx*.tgz
+    #mv freepbx-2* freepbx
     mkdir /var/www/html /var/lib/asterisk/bin
 
     cd /usr/src/freepbx
