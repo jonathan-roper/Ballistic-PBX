@@ -265,7 +265,7 @@ then
     cd /usr/src
     rm -rf freepbx*.tar.gz
     rm -rf freepbx
-    wget http://mirror.freepbx.org/freepbx-2.11.0.tar.gz
+    wget http://mirror.freepbx.org/freepbx-2.11.0.40.tgz
     tar zxfv freepbx*.tar.gz
     rm -rf freepbx*.tar.gz
     mv freepbx-2* freepbx
@@ -594,7 +594,7 @@ function funcossec ()
 
 cd /usr/src
 rm -rf ossec*
-wget http://www.ossec.net/files/ossec-hids-2.7.tar.gz
+curl -O http://www.ossec.net/files/ossec-hids-2.8.1.tar.gz
 tar zxfv ossec-hids-*.tar.gz
 rm -rf ossec-hids*.tar.gz
 mv ossec-hids-* ossec-hids
@@ -753,7 +753,7 @@ while true; do
     case $yn in
         [Yy]* ) 
 			cd /usr/share
-			wget http://www.ossec.net/files/ossec-wui-0.3.tar.gz
+			curl -O http://www.ossec.net/files/ossec-wui-0.3.tar.gz
 			tar zxfv ossec-wui-0.3.tar.gz
 			rm -rf ossec-wui-0.3.tar.gz
 			mv ossec-wui* ossecui
@@ -853,7 +853,7 @@ apt-get -y install mysql-server
 apt-get -y install mysql-client libmysqlclient-dev build-essential sysvinit-utils libxml2 libxml2-dev libncurses5-dev libcurl4-openssl-dev libvorbis-dev libspeex-dev unixodbc unixodbc-dev libiksemel-dev wget iptables php5 php5-cli php-pear php5-mysql php-db libapache2-mod-php5 php5-gd php5-curl sqlite libnewt-dev libusb-dev zlib1g-dev  libsqlite0-dev  libapache2-mod-auth-mysql sox mpg123 postfix flite php5-mcrypt python-setuptools python-mysqldb python-psycopg2 python-sqlalchemy ntp
 
 #extras 
-apt-get -y install wget sudo iptables vim subversion flex bison libtiff-tools ghostscript autoconf gcc g++ automake libtool patch
+apt-get -y install curl wget sudo iptables vim subversion flex bison libtiff-tools ghostscript autoconf gcc g++ automake libtool patch
 
 
 
