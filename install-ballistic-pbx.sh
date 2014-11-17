@@ -955,7 +955,7 @@ funcunifiedlogin () {
 		AuthUserFile /dev/null
 		AuthBasicAuthoritative off
 		Auth_MySQL on
-		Auth_MySQL_Authoritative on
+		Auth_MySQL_Authoritative off
 		Auth_MySQL_Username asteriskuser
 		Auth_MySQL_Password $AMPDBPASS
 		Auth_MySQL_DB asterisk
