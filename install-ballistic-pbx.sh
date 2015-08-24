@@ -511,6 +511,15 @@ iptables -A OUTPUT -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
 iptables -A INPUT -i lo -p all -j ACCEPT  
 #drop sipvicious attacks
 iptables -I INPUT -j DROP -p udp --dport 5060 -m string --string "friendly-scanner" --algo bm
+optables -I INPUT -j DROP -p udp --dport 5060 -m string --string "VaxSIPUserAgent" --algo bm
+iptables -I INPUT -j DROP -p udp --dport 5060 -m string --string "sundayddr" --algo bm
+iptables -I INPUT -j DROP -p udp --dport 5060 -m string --string "sipsak" --algo bm
+iptables -I INPUT -j DROP -p udp --dport 5060 -m string --string "sipvicious" --algo bm
+iptables -I INPUT -j DROP -p udp --dport 5060 -m string --string "iWar" --algo bm
+iptables -I INPUT -j DROP -p udp --dport 5060 -m string --string "sip-scan" --algo bm
+iptables -I INPUT -j DROP -p udp --dport 5060 -m string --string "VaxSIPUserAgent" --algo bm
+#windows command name client sipcli used to scan as well.
+iptables -I INPUT -j DROP -p udp --dport 5060 -m string --string "sipcli" --algo bm
 iptables -A INPUT -p udp -m udp --dport 69 -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
