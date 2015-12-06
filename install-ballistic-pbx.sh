@@ -1061,7 +1061,7 @@ function funcssl() {
 	a2enmod rewrite
 
 	#Enable SSL
-	ln -s /etc/apache2/sites-available/default-ssl /etc/apache2/sites-enabled/000-default-ssl
+	ln -s /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enabled/000-default-ssl.conf
 
 
 	# SSL for Web pages 
